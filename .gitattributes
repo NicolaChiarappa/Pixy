@@ -1,0 +1,22 @@
+# ================================
+# Default: forza LF per tutti i file di testo
+# ================================
+* text=auto eol=lf
+
+# ================================
+# Script
+# ================================
+*.sh text eol=lf
+*.bat text eol=crlf
+
+# ================================
+# Binary files (mai convertire line endings)
+# ================================
+*.jar binary
+*.war binary
+*.exe binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
