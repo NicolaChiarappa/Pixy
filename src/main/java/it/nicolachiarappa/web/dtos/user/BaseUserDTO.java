@@ -1,0 +1,28 @@
+package it.nicolachiarappa.web.dtos.user;
+
+import it.nicolachiarappa.model.Gender;
+import jakarta.validation.constraints.Email;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.URL;
+
+import java.util.Date;
+
+@Data
+@NoArgsConstructor
+public class BaseUserDTO {
+
+    private String name;
+
+    private String username;
+
+    private Date birthDate;
+
+    @Email
+    private String email;
+
+    private Gender gender;
+
+    @URL
+    private String photoUrl;
+}

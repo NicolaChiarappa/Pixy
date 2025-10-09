@@ -31,6 +31,11 @@ dependencies {
 
     // Database (aggiungi uno, es: H2 in memoria)
     runtimeOnly("org.postgresql:postgresql:42.7.3")
+
+    //mapstruct
+    implementation("org.mapstruct:mapstruct:1.5.5.Final")
+    annotationProcessor( "org.mapstruct:mapstruct-processor:1.5.5.Final")
+
 }
 
 tasks.test {
