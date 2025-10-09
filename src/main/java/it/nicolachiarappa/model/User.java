@@ -1,10 +1,7 @@
 package it.nicolachiarappa.model;
 
 import java.util.Date;
-import java.util.List;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 

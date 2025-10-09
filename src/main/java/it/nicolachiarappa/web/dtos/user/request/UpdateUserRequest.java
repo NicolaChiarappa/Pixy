@@ -1,21 +1,30 @@
 package it.nicolachiarappa.web.dtos.user.request;
 
+import it.nicolachiarappa.model.Gender;
 import it.nicolachiarappa.web.dtos.user.BaseUserDTO;
+import jakarta.validation.constraints.Email;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.hibernate.validator.constraints.URL;
+
+import java.util.Date;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
 public final class UpdateUserRequest extends UserRequest{
 
-    /**
-     * User's id who you want to update
-     */
-    private Long id;
+    private String name;
 
-    /**
-     * Payload of the new properties that you want to edit
-     */
-    private BaseUserDTO newUser;
+    private String username;
+
+    private Date birthDate;
+
+    @Email
+    private String email;
+
+    private Gender gender;
+
+    @URL
+    private String photoUrl;
 
 }

@@ -43,8 +43,8 @@ public class UserService {
     }
 
     @Transactional
-    public BaseUserDTO updateUser(UpdateUserRequest request){
-        Optional<User> user = userRepository.findById(request.getId());
+    public BaseUserDTO updateUser(Long id, UpdateUserRequest request){
+        Optional<User> user = userRepository.findById(id);
         if(user.isPresent()){
             User userUpdated = userMapper.fromUpdate(user.get(), request);
             return userMapper.toDto(userRepository.save(userUpdated));

@@ -28,12 +28,12 @@ public interface UserMapper {
 
 
     @Mapping(target = "role", constant = "USER")
-    @Mapping(target = "username", source = "newUser.username")
-    @Mapping(target = "email", source = "newUser.email")
-    @Mapping(target = "photoUrl", source ="newUser.photoUrl" )
-    @Mapping(target = "birthDate", source = "newUser.birthDate")
-    @Mapping(target = "gender", source = "newUser.gender")
-    @Mapping(target = "name", source = "newUser.name")
+    @Mapping(target = "username", source = "username")
+    @Mapping(target = "email", source = "email")
+    @Mapping(target = "photoUrl", source ="photoUrl" )
+    @Mapping(target = "birthDate", source = "birthDate")
+    @Mapping(target = "gender", source = "gender")
+    @Mapping(target = "name", source = "name")
     User fromUpdate(@MappingTarget User existing, UpdateUserRequest request);
 
 
