@@ -12,8 +12,11 @@ import lombok.*;
 public class User extends BaseAccount{
 
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "firstName")
+    private String firstName;
+
+    @Column(name = "lastName")
+    private String lastName;
 
 
     @Column(name = "birthDate")

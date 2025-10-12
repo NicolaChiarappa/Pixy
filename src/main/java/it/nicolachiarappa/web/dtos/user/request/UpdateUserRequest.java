@@ -1,5 +1,6 @@
 package it.nicolachiarappa.web.dtos.user.request;
 
+import it.nicolachiarappa.model.AccountRole;
 import it.nicolachiarappa.model.Gender;
 import it.nicolachiarappa.web.dtos.user.BaseUserDTO;
 import jakarta.validation.constraints.Email;
@@ -13,7 +14,9 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = false)
 public final class UpdateUserRequest extends UserRequest{
 
-    private String name;
+    private String firstName;
+
+    private String lastName;
 
     private String username;
 
@@ -26,5 +29,6 @@ public final class UpdateUserRequest extends UserRequest{
 
     @URL
     private String photoUrl;
+
 
 }
