@@ -2,14 +2,18 @@ package it.nicolachiarappa.service;
 
 import it.nicolachiarappa.web.dtos.user.BaseUserDTO;
 import it.nicolachiarappa.web.dtos.user.request.SignUpRequest;
+import it.nicolachiarappa.web.dtos.user.response.Response;
 import it.nicolachiarappa.web.mapper.UserMapper;
 import it.nicolachiarappa.web.dtos.user.request.UpdateUserRequest;
 import it.nicolachiarappa.model.User;
 import it.nicolachiarappa.repository.UserRepository;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -43,14 +47,22 @@ public class UserService {
     }
 
     @Transactional
-    public BaseUserDTO updateUser(Long id, UpdateUserRequest request){
+    public BaseUserDTO updateUser(Long id, @Valid @RequestBody UpdateUserRequest request){
         Optional<User> user = userRepository.findById(id);
-        if(user.isPresent()){
+        if(user.isPresent()) {
             User userUpdated = userMapper.fromUpdate(user.get(), request);
             return userMapper.toDto(userRepository.save(userUpdated));
+
+
         }
-        return new BaseUserDTO();
+        return null;
     }
 
 
+    public List<BaseUserDTO> getAll() {
+        return userRepository.findAll()
+                .stream()
+                .map(userMapper::toDto)
+                .toList();
+    }
 }
