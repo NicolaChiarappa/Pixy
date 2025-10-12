@@ -1,17 +1,24 @@
 package it.nicolachiarappa.controller;
 
+import it.nicolachiarappa.model.User;
+import it.nicolachiarappa.repository.UserRepository;
 import it.nicolachiarappa.web.dtos.user.BaseUserDTO;
 import it.nicolachiarappa.web.dtos.user.request.SignUpRequest;
 import it.nicolachiarappa.web.dtos.user.request.UpdateUserRequest;
 import it.nicolachiarappa.service.UserService;
+import it.nicolachiarappa.web.dtos.user.response.Response;
+import it.nicolachiarappa.web.mapper.UserMapper;
+import it.nicolachiarappa.web.mapper.UserMapperImpl;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,17 +48,17 @@ public class UserController {
 
 
     @Autowired
-    public UserController(UserService service){
+    public UserController(UserService service, UserRepository userRepository, UserMapperImpl userMapperImpl){
         this.userService = service;
     }
 
-    @GetMapping("/{id}")
-    public BaseUserDTO getUserById(@PathVariable(name = "id") Long id){
+    @GetMapping
+    public BaseUserDTO getUserById(@RequestParam(name = "id", required = true) Long id){
         return userService.getUserById(id);
     }
 
-    @GetMapping()
-    public BaseUserDTO getUserByUsername(@RequestParam(value = "username") String username){
+    @GetMapping({"/{username}"})
+    public BaseUserDTO getUserByUsername(@PathVariable(value = "username") String username){
         return userService.getUserByUsername(username);
     }
 
@@ -60,13 +67,14 @@ public class UserController {
         return userService.saveUser(dto);
     }
 
-    @PatchMapping("/{id}")
-    public BaseUserDTO updateUser(@PathVariable(name = "id") Long id, @RequestBody UpdateUserRequest request){
+    @PatchMapping
+    public BaseUserDTO updateUser(@RequestParam(name = "id", required = true) Long id, @RequestBody UpdateUserRequest request){
         return userService.updateUser(id, request);
     }
 
-    @GetMapping()
-    public List<BaseUserDTO> getAllUsers(){
+    @GetMapping("/all")
+    public List<BaseUserDTO> findMany(){
+        ArrayList<BaseUserDTO> userList = new ArrayList();
         return userService.getAll();
     }
 
