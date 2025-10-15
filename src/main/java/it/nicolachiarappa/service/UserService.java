@@ -2,7 +2,6 @@ package it.nicolachiarappa.service;
 
 import it.nicolachiarappa.web.dtos.user.BaseUserDTO;
 import it.nicolachiarappa.web.dtos.user.request.SignUpRequest;
-import it.nicolachiarappa.web.dtos.user.response.Response;
 import it.nicolachiarappa.web.mapper.UserMapper;
 import it.nicolachiarappa.web.dtos.user.request.UpdateUserRequest;
 import it.nicolachiarappa.model.User;
@@ -47,7 +46,7 @@ public class UserService {
     }
 
     @Transactional
-    public BaseUserDTO updateUser(Long id, @Valid @RequestBody UpdateUserRequest request){
+    public BaseUserDTO updateUser(Long id, @Valid @RequestBody UpdateUserRequest request) {
         Optional<User> user = userRepository.findById(id);
         if(user.isPresent()) {
             User userUpdated = userMapper.fromUpdate(user.get(), request);
@@ -65,4 +64,25 @@ public class UserService {
                 .map(userMapper::toDto)
                 .toList();
     }
+
+
+    public List<BaseUserDTO> saveMany(List<SignUpRequest> requests){
+        return requests.stream()
+                .map(this::saveUser)
+                .toList();
+    }
+
+
+    private boolean usernameExists(String username){
+        return userRepository.findByUsername(username).isPresent();
+    }
+
+
+    private void checkUsername(User user) throws Exception{
+        if(user.getUsername()!=null && usernameExists(user.getUsername())){
+            throw new Exception("this username already exists");
+        }
+    }
+
+
 }
