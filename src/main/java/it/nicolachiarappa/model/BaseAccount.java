@@ -16,8 +16,7 @@ public abstract class BaseAccount {
     @Column(name = "role")
     private AccountRole role;
 
-    @Column(name = "username")
-
+    @Column(unique = true, name = "username")
     private String username;
 
     @Column(name = "photoUrl")
