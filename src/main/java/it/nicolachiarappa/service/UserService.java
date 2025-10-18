@@ -18,12 +18,14 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private UserMapper userMapper;
+    private final UserRepository userRepository;
+    private final UserMapper  userMapper;
 
-
+    @Autowired
+    public UserService(UserRepository repo, UserMapper mapper){
+        userRepository= repo;
+        userMapper = mapper;
+    }
 
 
     public BaseUserDTO getUserById(Long id){
@@ -34,8 +36,7 @@ public class UserService {
 
 
     public BaseUserDTO getUserByUsername(String username){
-        System.out.println(username);
-        return userRepository.findByUsername(username)
+       return userRepository.findByUsername(username)
                 .map(userMapper::toDto)
                 .orElse(null);
     }
@@ -73,16 +74,6 @@ public class UserService {
     }
 
 
-    private boolean usernameExists(String username){
-        return userRepository.findByUsername(username).isPresent();
-    }
-
-
-    private void checkUsername(User user) throws Exception{
-        if(user.getUsername()!=null && usernameExists(user.getUsername())){
-            throw new Exception("this username already exists");
-        }
-    }
 
 
 }
