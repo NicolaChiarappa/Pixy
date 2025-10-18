@@ -1,0 +1,15 @@
+package it.nicolachiarappa.controller;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+
+
+@Data
+@Builder
+@AllArgsConstructor
+public class ApiResponse<T> {
+    boolean success;
+    String message;
+    T data;
+}
