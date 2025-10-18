@@ -14,43 +14,68 @@ public class UserController {
 
 
     private final UserService userService;
+    private final ApiResponseFactory factory;
 
 
     @Autowired
-    public UserController(UserService service){
+    public UserController(UserService service, ApiResponseFactory factory){
         this.userService = service;
+        this.factory = factory;
+
     }
 
     @GetMapping("/{id}")
-    public BaseUserDTO getUserById(@PathVariable(name = "id") Long id){
-        return userService.getUserById(id);
+    public ApiResponse<BaseUserDTO> getUserById(@PathVariable(name = "id") Long id){
+        return factory.createSuccessResponse(
+                "user found",
+                userService.getUserById(id)
+        );
+    }
+
+    @GetMapping("/all")
+    public ApiResponse<List<BaseUserDTO>> getAllUsers(){
+        return factory.createSuccessResponse(
+                "these are all the users",
+                userService.getAll()
+        );
+
+
     }
 
     @GetMapping
-    public List<BaseUserDTO> getUserByUsername(@RequestParam(value = "username", required = false ) String username){
-        System.out.println(username);
-        if(username.isEmpty()){
-            return userService.getAll();
-        }
-        return List.of(userService.getUserByUsername(username));
+    public ApiResponse<BaseUserDTO> getByUsername(@RequestParam(value = "username" ) String username){
+        return factory.createSuccessResponse(
+                "user found",
+                userService.getUserByUsername(username)
+        );
     }
+
 
 
 
     @PostMapping
-    public BaseUserDTO addUser(@RequestBody SignUpRequest dto){
-        return userService.saveUser(dto);
+    public ApiResponse<BaseUserDTO> addUser(@RequestBody SignUpRequest dto){
+        return factory.createSuccessResponse(
+                "user created successfully",
+                userService.saveUser(dto)
+        );
     }
 
     @PostMapping("/many")
-    public List<BaseUserDTO> addMany(@RequestBody List<SignUpRequest> requests){
-        return userService.saveMany(requests);
+    public ApiResponse<List<BaseUserDTO>> addMany(@RequestBody List<SignUpRequest> requests){
+        return factory.createSuccessResponse(
+                "these are all the accounts created",
+                userService.saveMany(requests)
+        );
     }
 
 
     @PatchMapping("/{id}")
-    public BaseUserDTO updateUser(@PathVariable(name = "id") Long id, @RequestBody UpdateUserRequest request){
-        return userService.updateUser(id, request);
+    public ApiResponse<BaseUserDTO> updateUser(@PathVariable(name = "id") Long id, @RequestBody UpdateUserRequest request){
+        return factory.createSuccessResponse(
+                "account modified successfully",
+                userService.updateUser(id, request)
+        );
     }
 
 
