@@ -2,7 +2,6 @@ package it.nicolachiarappa.model;
 
 import java.util.Date;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 
 
@@ -19,20 +18,20 @@ public class User extends BaseAccount{
 
 
 
-    @Column(name = "firstName")
+    @Column
     private String firstName;
 
-    @Column(name = "lastName")
+    @Column
     private String lastName;
 
 
-    @Column(name = "birthDate")
+    @Column
     private Date birthDate;
 
 
 
 //TODO:
-//  @Column(name = "country")
+//  @Column
 //  private Country country;
 
 
