@@ -3,7 +3,7 @@ package it.nicolachiarappa.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
-import org.hibernate.validator.constraints.URL;
+
 
 @Data
 @Entity
@@ -20,12 +20,12 @@ public abstract class BaseAccount {
     @Column(unique = true, name = "username")
     private String username;
 
-    @URL
+
     @Column(name = "photoUrl")
     private String photoUrl;
 
     @Email
-    @Column(unique = true, name = "email")
+    @Column(name = "email")
     private String email;
 
 }

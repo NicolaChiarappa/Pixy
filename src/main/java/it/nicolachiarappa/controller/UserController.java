@@ -3,6 +3,7 @@ import it.nicolachiarappa.web.dtos.user.BaseUserDTO;
 import it.nicolachiarappa.web.dtos.user.request.SignUpRequest;
 import it.nicolachiarappa.web.dtos.user.request.UpdateUserRequest;
 import it.nicolachiarappa.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +28,7 @@ public class UserController {
     @GetMapping("/{id}")
     public ApiResponse<BaseUserDTO> getUserById(@PathVariable(name = "id") Long id){
         return factory.createSuccessResponse(
-                "user found",
+                Messages.Success.ACCOUNT_FOUND,
                 userService.getUserById(id)
         );
     }
@@ -35,7 +36,7 @@ public class UserController {
     @GetMapping("/all")
     public ApiResponse<List<BaseUserDTO>> getAllUsers(){
         return factory.createSuccessResponse(
-                "these are all the users",
+                Messages.Success.ACCOUNT_FOUND,
                 userService.getAll()
         );
 
@@ -45,7 +46,7 @@ public class UserController {
     @GetMapping
     public ApiResponse<BaseUserDTO> getByUsername(@RequestParam(value = "username" ) String username){
         return factory.createSuccessResponse(
-                "user found",
+                Messages.Success.ACCOUNT_FOUND,
                 userService.getUserByUsername(username)
         );
     }
@@ -54,30 +55,21 @@ public class UserController {
 
 
     @PostMapping
-    public ApiResponse<BaseUserDTO> addUser(@RequestBody SignUpRequest dto){
+    public ApiResponse<BaseUserDTO> addUser(@RequestBody @Valid SignUpRequest dto){
         return factory.createSuccessResponse(
-                "user created successfully",
+                Messages.Success.ACCOUNT_CREATED,
                 userService.saveUser(dto)
         );
     }
 
-    @PostMapping("/many")
-    public ApiResponse<List<BaseUserDTO>> addMany(@RequestBody List<SignUpRequest> requests){
-        return factory.createSuccessResponse(
-                "these are all the accounts created",
-                userService.saveMany(requests)
-        );
-    }
+
 
 
     @PatchMapping("/{id}")
     public ApiResponse<BaseUserDTO> updateUser(@PathVariable(name = "id") Long id, @RequestBody UpdateUserRequest request){
         return factory.createSuccessResponse(
-                "account modified successfully",
+                Messages.Success.ACCOUNT_MODIFIED,
                 userService.updateUser(id, request)
         );
     }
-
-
-
 }

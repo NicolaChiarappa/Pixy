@@ -1,7 +1,5 @@
 package it.nicolachiarappa.controller;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -16,10 +14,10 @@ public class ApiResponseFactory {
     }
 
 
-    public  <T> ApiResponse<T> createNotFoundResponse(String message) {
+    public <T> ApiResponse<T> createErrorResponse(String message, T data){
         return ApiResponse.<T>builder()
                 .message(message)
-                .data(null)
+                .data(data)
                 .success(false)
                 .build();
     }
