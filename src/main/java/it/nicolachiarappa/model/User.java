@@ -2,14 +2,21 @@ package it.nicolachiarappa.model;
 
 import java.util.Date;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 
 @EqualsAndHashCode(callSuper = false)
 @Data
 @Entity
-@Table(name = "users")
+@Table(name = "users",
+        uniqueConstraints = {
+            @UniqueConstraint(name = "email", columnNames = {"email"}),
+            @UniqueConstraint(name = "username", columnNames = {"username"})
+        }
+    )
 public class User extends BaseAccount{
+
 
 
     @Column(name = "firstName")
@@ -25,8 +32,8 @@ public class User extends BaseAccount{
 
 
 //TODO:
-//    @Column(name = "country")
-//    private Country country;
+//  @Column(name = "country")
+//  private Country country;
 
 
     @Column(name = "gender")
