@@ -1,8 +1,8 @@
-package it.nicolachiarappa.controller;
+package it.nicolachiarappa.context.identity.infrastructure.web;
 import it.nicolachiarappa.web.dtos.user.BaseUserDTO;
 import it.nicolachiarappa.web.dtos.user.request.SignUpRequest;
 import it.nicolachiarappa.web.dtos.user.request.UpdateUserRequest;
-import it.nicolachiarappa.service.UserService;
+import it.nicolachiarappa.context.identity.application.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

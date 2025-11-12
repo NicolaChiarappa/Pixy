@@ -2,7 +2,7 @@ package it.nicolachiarappa.web.mapper;
 
 import it.nicolachiarappa.web.dtos.user.BaseUserDTO;
 import it.nicolachiarappa.web.dtos.user.request.SignUpRequest;
-import it.nicolachiarappa.model.User;
+import it.nicolachiarappa.context.identity.domain.model.User;
 import it.nicolachiarappa.web.dtos.user.request.UpdateUserRequest;
 import org.mapstruct.*;
 

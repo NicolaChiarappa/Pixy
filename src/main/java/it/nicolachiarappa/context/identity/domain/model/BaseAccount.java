@@ -1,4 +1,4 @@
-package it.nicolachiarappa.model;
+package it.nicolachiarappa.context.identity.domain.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;

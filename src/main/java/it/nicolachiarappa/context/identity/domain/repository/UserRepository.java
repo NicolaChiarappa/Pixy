@@ -1,6 +1,6 @@
-package it.nicolachiarappa.repository;
+package it.nicolachiarappa.context.identity.domain.repository;
 
-import it.nicolachiarappa.model.User;
+import it.nicolachiarappa.context.identity.domain.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

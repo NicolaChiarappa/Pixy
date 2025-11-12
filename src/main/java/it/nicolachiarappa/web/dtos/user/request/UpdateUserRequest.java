@@ -1,8 +1,6 @@
 package it.nicolachiarappa.web.dtos.user.request;
 
-import it.nicolachiarappa.model.AccountRole;
-import it.nicolachiarappa.model.Gender;
-import it.nicolachiarappa.web.dtos.user.BaseUserDTO;
+import it.nicolachiarappa.context.identity.domain.model.Gender;
 import jakarta.validation.constraints.Email;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

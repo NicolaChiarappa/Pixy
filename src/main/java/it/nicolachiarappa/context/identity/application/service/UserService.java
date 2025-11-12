@@ -1,17 +1,15 @@
-package it.nicolachiarappa.service;
+package it.nicolachiarappa.context.identity.application.service;
 
 import it.nicolachiarappa.web.dtos.user.BaseUserDTO;
 import it.nicolachiarappa.web.dtos.user.request.SignUpRequest;
 import it.nicolachiarappa.web.mapper.UserMapper;
 import it.nicolachiarappa.web.dtos.user.request.UpdateUserRequest;
-import it.nicolachiarappa.model.User;
-import it.nicolachiarappa.repository.UserRepository;
-import jakarta.transaction.Transactional;
-import jakarta.validation.Valid;
+import it.nicolachiarappa.context.identity.domain.model.User;
+import it.nicolachiarappa.context.identity.domain.repository.UserRepository;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +20,7 @@ public class UserService {
     private final UserMapper  userMapper;
 
     @Autowired
-    public UserService(UserRepository repo, UserMapper mapper){
+    public UserService(UserRepository repo, UserMapper mapper, Validator validator){
         userRepository= repo;
         userMapper = mapper;
     }
@@ -31,7 +29,7 @@ public class UserService {
     public BaseUserDTO getUserById(Long id){
         return userRepository.findById(id)
                 .map(userMapper::toDto)
-                .orElse(null);
+                .orElseThrow(()-> new EntityNotFoundException("User not found"));
     }
 
 
@@ -46,8 +44,8 @@ public class UserService {
        return userMapper.toDto(userRepository.save(user));
     }
 
-    @Transactional
-    public BaseUserDTO updateUser(Long id, @Valid @RequestBody UpdateUserRequest request) {
+
+    public BaseUserDTO updateUser(Long id, UpdateUserRequest request) {
         Optional<User> user = userRepository.findById(id);
         if(user.isPresent()) {
             User userUpdated = userMapper.fromUpdate(user.get(), request);
@@ -65,15 +63,4 @@ public class UserService {
                 .map(userMapper::toDto)
                 .toList();
     }
-
-
-    public List<BaseUserDTO> saveMany(List<SignUpRequest> requests){
-        return requests.stream()
-                .map(this::saveUser)
-                .toList();
-    }
-
-
-
-
 }

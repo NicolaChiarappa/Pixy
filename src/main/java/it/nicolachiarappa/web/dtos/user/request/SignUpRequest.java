@@ -1,6 +1,6 @@
 package it.nicolachiarappa.web.dtos.user.request;
 
-import it.nicolachiarappa.model.Gender;
+import it.nicolachiarappa.context.identity.domain.model.Gender;
 import lombok.*;
 import org.hibernate.validator.constraints.URL;
 import jakarta.validation.constraints.Email;

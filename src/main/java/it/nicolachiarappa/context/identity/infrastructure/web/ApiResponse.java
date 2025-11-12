@@ -1,4 +1,4 @@
-package it.nicolachiarappa.controller;
+package it.nicolachiarappa.context.identity.infrastructure.web;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
