@@ -22,6 +22,7 @@ repositories {
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 
     // Starter Spring Boot
     implementation("org.springframework.boot:spring-boot-starter-web")
@@ -35,6 +36,15 @@ dependencies {
     //mapstruct
     implementation("org.mapstruct:mapstruct:1.5.5.Final")
     annotationProcessor( "org.mapstruct:mapstruct-processor:1.5.5.Final")
+
+    //mock
+    testImplementation("org.mockito:mockito-core:5.17.0")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.17.0")
+
+
+
+
+//    compileOnly("io.github.wimdeblauwe:error-handling-spring-boot-starter:4.6.0")
 
 }
 
