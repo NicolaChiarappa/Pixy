@@ -1,6 +1,6 @@
 package it.nicolachiarappa.context.catalog.domain.model;
 
-import it.nicolachiarappa.shared.BaseEntity;
+import it.nicolachiarappa.shared.domain.model.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

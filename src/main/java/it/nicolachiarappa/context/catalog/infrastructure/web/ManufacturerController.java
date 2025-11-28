@@ -8,7 +8,6 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/manufacturer")
@@ -22,15 +21,15 @@ public class ManufacturerController {
 
     @PostMapping
     public ManufacturerDTO createManufacturer(@RequestBody @Valid CreateManufacturerRequest request){
-        return mapper.toDTO(service.addManufacturer(request));
+        return  service.create(request);
     }
 
-    @GetMapping
-    public List<ManufacturerDTO> getAll(){
-        return service.findAll().stream()
-                .map(mapper::toDTO)
-                .toList();
-    }
+//    @GetMapping
+//    public List<ManufacturerDTO> getAll(){
+//        return service.findAll().stream()
+//                .map(mapper::toDTO)
+//                .toList();
+//    }
 
 
 
