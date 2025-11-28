@@ -1,0 +1,24 @@
+package it.nicolachiarappa.context.identity.domain.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "country")
+public class Country {
+
+    @Column
+    private String name;
+
+    @Column
+    @Id
+    private Long id;
+
+
+
+
+}
