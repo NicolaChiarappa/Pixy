@@ -1,4 +1,4 @@
-package it.nicolachiarappa.shared;
+package it.nicolachiarappa.shared.domain.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -11,8 +11,5 @@ public abstract class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-
-
-
 
 }
