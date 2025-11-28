@@ -12,6 +12,7 @@ import it.nicolachiarappa.context.catalog.domain.repository.CameraRepository;
 import it.nicolachiarappa.context.catalog.domain.repository.LensRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,10 +52,11 @@ public class GearServiceImpl implements GearService {
     }
 
     @Override
-    public void addLens(@Valid CreateLensRequest request) {
+    public Lens addLens(@Valid @NotNull CreateLensRequest request) {
 
+        System.out.println(request);
         Lens lens = lensMapper.fromCreateRequest(request);
-        lensRepository.save(lens);
+        return lensRepository.save(lens);
     }
 
     @Override
