@@ -1,10 +1,13 @@
 package it.nicolachiarappa.context.catalog.application.services;
 
+import it.nicolachiarappa.context.catalog.application.dtos.CameraDTO;
 import it.nicolachiarappa.context.catalog.application.requests.CreateCameraRequest;
 import it.nicolachiarappa.context.catalog.application.requests.CreateLensRequest;
 import it.nicolachiarappa.context.catalog.application.requests.GearRequest;
 import it.nicolachiarappa.context.catalog.application.requests.UpgradeGearRequest;
 import it.nicolachiarappa.context.catalog.domain.model.Camera;
+
+import java.util.List;
 
 public interface GearService {
 
@@ -20,7 +23,7 @@ public interface GearService {
     void removeLens(GearRequest request);
 
 
-    void upgradeCamera(UpgradeGearRequest request);
+    List<CameraDTO> upgradeCamera(UpgradeGearRequest request);
 
     void upgradeLens(UpgradeGearRequest request);
 

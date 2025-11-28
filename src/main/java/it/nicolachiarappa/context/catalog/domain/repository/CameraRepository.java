@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface CameraRepository extends JpaRepository<Camera, Long> {
 
 
+    Camera findCameraByName(String name);
 }

@@ -1,5 +1,5 @@
 package it.nicolachiarappa.context.catalog.domain.model;
-import it.nicolachiarappa.shared.BaseEntity;
+import it.nicolachiarappa.shared.domain.model.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 

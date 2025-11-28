@@ -1,5 +1,6 @@
 package it.nicolachiarappa.context.catalog.application.services;
 
+import it.nicolachiarappa.context.catalog.application.dtos.CameraDTO;
 import it.nicolachiarappa.context.catalog.application.mappers.CameraMapper;
 import it.nicolachiarappa.context.catalog.application.mappers.LensMapper;
 import it.nicolachiarappa.context.catalog.application.requests.CreateCameraRequest;
@@ -15,6 +16,9 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -62,14 +66,25 @@ public class GearServiceImpl implements GearService {
 
     @Override
     @Transactional
-    public void upgradeCamera(@Valid UpgradeGearRequest request) {
+    public List<CameraDTO> upgradeCamera(@Valid UpgradeGearRequest request) {
         Camera oldCamera = cameraRepository.getReferenceById(request.getOldId());
         Camera newCamera = cameraRepository.getReferenceById(request.getNewId());
 
         oldCamera.upgrade(newCamera);
 
-        cameraRepository.save(oldCamera);
-        cameraRepository.save(newCamera);
+        List<CameraDTO> list = new ArrayList<>();
+
+        list.add(
+                cameraMapper.toDTO(cameraRepository.save(oldCamera))
+        );
+
+        list.add(
+                cameraMapper.toDTO(cameraRepository.save(newCamera))
+        );
+
+        return list;
+
+
 
     }
 

@@ -22,7 +22,7 @@ public abstract class CameraMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "actualMarketValue", ignore = true)
     @Mapping(target = "successor", ignore = true)
-    @Mapping(target = "predecessor", ignore = true)//---------------
+    @Mapping(target = "predecessor", ignore = true)
     @Mapping(target = "manufacturer", source = "manufacturerId", qualifiedByName = "manufacturerFromId")
     public abstract Camera fromCreateRequest(CreateCameraRequest request);
 
