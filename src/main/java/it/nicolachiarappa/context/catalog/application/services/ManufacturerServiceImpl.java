@@ -37,6 +37,8 @@ public class ManufacturerServiceImpl implements ManufacturerService  {
         return null;
     }
 
+
+
     @Override
     public EntityMapper<Manufacturer, ManufacturerDTO> getMapper(){
         return this.mapper;
@@ -49,11 +51,5 @@ public class ManufacturerServiceImpl implements ManufacturerService  {
 
 
 
-//    @Override
-//    public Manufacturer removeManufacturer(RemoveManufacturerRequest request) {
-//        Manufacturer manufacturer = manufacturerRepository.findById(request.getId())
-//                .orElseThrow();
-//        manufacturerRepository.delete(manufacturer);
-//        return manufacturer;
-//    }
+
 }

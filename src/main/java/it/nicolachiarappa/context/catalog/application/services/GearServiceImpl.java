@@ -52,6 +52,11 @@ public class GearServiceImpl implements GearService {
     }
 
     @Override
+    public Camera getCameraById(Long id) {
+        return cameraRepository.findById(id).orElseThrow();
+    }
+
+    @Override
     public Lens addLens(@Valid @NotNull CreateLensRequest request) {
 
         System.out.println(request);
@@ -64,6 +69,10 @@ public class GearServiceImpl implements GearService {
         lensRepository.deleteById(request.getId());
     }
 
+    @Override
+    public Lens getLensById(Long id) {
+        return lensRepository.findById(id).orElseThrow();
+    }
 
 
     @Override

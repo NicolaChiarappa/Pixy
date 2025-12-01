@@ -31,4 +31,9 @@ public class CameraController {
         return service.upgradeCamera(request);
     }
 
+    @GetMapping("/{id}")
+    public CameraDTO getCameraById(@PathVariable Long id){
+        return cameraMapper.toDTO(service.getCameraById(id));
+    }
+
 }

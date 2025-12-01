@@ -6,7 +6,6 @@ import it.nicolachiarappa.context.catalog.application.requests.CreateLensRequest
 import it.nicolachiarappa.context.catalog.application.requests.GearRequest;
 import it.nicolachiarappa.context.catalog.application.requests.UpgradeGearRequest;
 import it.nicolachiarappa.context.catalog.domain.model.Camera;
-import it.nicolachiarappa.context.catalog.domain.model.Gear;
 import it.nicolachiarappa.context.catalog.domain.model.Lens;
 
 import java.util.List;
@@ -19,11 +18,15 @@ public interface GearService {
 
     void removeCamera(GearRequest request);
 
+    Camera getCameraById(Long id);
+
+
 
     Lens addLens(CreateLensRequest request);
 
     void removeLens(GearRequest request);
 
+    Lens getLensById(Long id);
 
     List<CameraDTO> upgradeCamera(UpgradeGearRequest request);
 

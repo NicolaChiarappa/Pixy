@@ -24,12 +24,10 @@ public class ManufacturerController {
         return  service.create(request);
     }
 
-//    @GetMapping
-//    public List<ManufacturerDTO> getAll(){
-//        return service.findAll().stream()
-//                .map(mapper::toDTO)
-//                .toList();
-//    }
+    @GetMapping
+    public ManufacturerDTO getManufacturerById(Long id){
+        return mapper.toDto(service.findByIdOrThrow(id));
+    }
 
 
 
