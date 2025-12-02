@@ -1,4 +1,4 @@
-package it.nicolachiarappa.context.identity.domain.model;
+package it.nicolachiarappa.context.identity.domain.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

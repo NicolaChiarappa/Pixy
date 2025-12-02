@@ -1,6 +1,6 @@
-package it.nicolachiarappa.web.dtos.user;
+package it.nicolachiarappa.context.identity.application.dtos;
 
-import it.nicolachiarappa.context.identity.domain.model.Gender;
+import it.nicolachiarappa.context.identity.domain.models.Gender;
 import jakarta.validation.constraints.Email;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,0 +1,27 @@
+package it.nicolachiarappa.context.identity.infrastructure.security;
+
+import it.nicolachiarappa.context.identity.application.utilities.PasswordHelper;
+import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
+
+@Data
+@Component
+public class SpringPasswordHelper implements PasswordHelper {
+
+    @Autowired
+    PasswordEncoder encoder;
+
+
+    @Override
+    public String encode(String password){
+        return encoder.encode(password);
+    }
+
+    @Override
+    public boolean match(String hash, String password){
+        return encoder.matches(hash, password);
+    }
+
+}

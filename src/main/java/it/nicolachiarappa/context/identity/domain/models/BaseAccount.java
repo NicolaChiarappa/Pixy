@@ -1,4 +1,4 @@
-package it.nicolachiarappa.context.identity.domain.model;
+package it.nicolachiarappa.context.identity.domain.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -19,6 +19,9 @@ public abstract class BaseAccount {
 
     @Column(unique = true, name = "username")
     private String username;
+
+    @Column
+    private String passwordHash;
 
 
     @Column(name = "photoUrl")
