@@ -1,6 +1,6 @@
 package it.nicolachiarappa.context.community.domain.model;
 
-import it.nicolachiarappa.context.identity.domain.model.User;
+import it.nicolachiarappa.context.identity.domain.models.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
