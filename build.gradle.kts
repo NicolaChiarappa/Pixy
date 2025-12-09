@@ -42,6 +42,11 @@ dependencies {
     testImplementation("org.mockito:mockito-core:5.17.0")
     testImplementation("org.mockito:mockito-junit-jupiter:5.17.0")
 
+    //Jwt
+    implementation ("io.jsonwebtoken:jjwt-api:0.13.0")
+    runtimeOnly ("io.jsonwebtoken:jjwt-impl:0.13.0")
+    runtimeOnly ("io.jsonwebtoken:jjwt-jackson:0.13.0")
+
 
 
 
