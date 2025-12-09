@@ -20,8 +20,8 @@ public class SpringPasswordHelper implements PasswordHelper {
     }
 
     @Override
-    public boolean match(String hash, String password){
-        return encoder.matches(hash, password);
+    public boolean match(String password, String hash){
+        return encoder.matches(password,hash);
     }
 
 }

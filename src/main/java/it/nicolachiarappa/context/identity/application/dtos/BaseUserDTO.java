@@ -29,4 +29,6 @@ public class BaseUserDTO {
 
     @URL
     private String photoUrl;
+
+    private String role;
 }

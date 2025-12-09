@@ -24,7 +24,6 @@ public interface UserMapper {
     @Mapping(target = "passwordHash", source = "password", qualifiedByName = "encodePassword")
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "country", ignore = true)
-    @Mapping(target = "role", constant = "USER")
     @Mapping(target = "firstName", source = "firstName")
     @Mapping(target = "lastName", source = "lastName")
     @Mapping(target = "username", source = "username")

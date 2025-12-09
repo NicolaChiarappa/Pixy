@@ -29,4 +29,6 @@ public final class SignUpRequest extends UserRequest {
     @URL
     private String photoUrl;
 
+    private String role;
+
 }

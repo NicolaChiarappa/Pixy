@@ -55,6 +55,7 @@ public class UserController {
 
     @PostMapping("/signup")
     public ApiResponse<BaseUserDTO> signUp(@RequestBody @Valid SignUpRequest dto){
+        System.out.println("signup");
         return factory.createSuccessResponse(
                 Messages.Success.ACCOUNT_CREATED,
                 userService.signUp(dto)
