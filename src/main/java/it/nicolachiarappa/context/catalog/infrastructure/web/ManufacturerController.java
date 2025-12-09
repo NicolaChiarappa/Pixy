@@ -6,6 +6,7 @@ import it.nicolachiarappa.context.catalog.application.requests.CreateManufacture
 import it.nicolachiarappa.context.catalog.application.services.ManufacturerService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -20,6 +21,7 @@ public class ManufacturerController {
     ManufacturerService service;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ManufacturerDTO createManufacturer(@RequestBody @Valid CreateManufacturerRequest request){
         return  service.create(request);
     }

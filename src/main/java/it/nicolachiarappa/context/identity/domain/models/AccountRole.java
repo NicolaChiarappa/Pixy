@@ -1,5 +1,18 @@
 package it.nicolachiarappa.context.identity.domain.models;
 
+import lombok.Getter;
+
+@Getter
 public enum AccountRole {
-    USER, SHOP, COMPANY
+    CUSTOMER("CUSTOMER"),
+    ADMIN("ADMIN");
+
+
+
+
+    private final String desctiption;
+
+    AccountRole(String role){
+        this.desctiption=role;
+    }
 }
