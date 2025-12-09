@@ -1,6 +1,6 @@
 package it.nicolachiarappa.context.catalog.application.dtos;
 
-import it.nicolachiarappa.context.catalog.domain.model.Format;
+import it.nicolachiarappa.context.catalog.domain.models.Format;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

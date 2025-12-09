@@ -1,7 +1,7 @@
 package it.nicolachiarappa.context.catalog.application.requests;
 
-import it.nicolachiarappa.context.catalog.domain.model.Mount;
-import it.nicolachiarappa.context.catalog.domain.model.Status;
+import it.nicolachiarappa.context.catalog.domain.models.Mount;
+import it.nicolachiarappa.context.catalog.domain.models.Status;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 

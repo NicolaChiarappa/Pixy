@@ -3,7 +3,7 @@ package it.nicolachiarappa.context.catalog.application.mappers;
 
 import it.nicolachiarappa.context.catalog.application.dtos.CameraDTO;
 import it.nicolachiarappa.context.catalog.application.requests.CreateCameraRequest;
-import it.nicolachiarappa.context.catalog.domain.model.Camera;
+import it.nicolachiarappa.context.catalog.domain.models.Camera;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.NullValuePropertyMappingStrategy;

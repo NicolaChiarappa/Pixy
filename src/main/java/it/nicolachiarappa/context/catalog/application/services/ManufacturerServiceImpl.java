@@ -2,8 +2,8 @@ package it.nicolachiarappa.context.catalog.application.services;
 
 import it.nicolachiarappa.context.catalog.application.dtos.ManufacturerDTO;
 import it.nicolachiarappa.context.catalog.application.mappers.ManufacturerMapper;
-import it.nicolachiarappa.context.catalog.domain.model.Manufacturer;
-import it.nicolachiarappa.context.catalog.domain.repository.ManufacturerRepository;
+import it.nicolachiarappa.context.catalog.domain.models.Manufacturer;
+import it.nicolachiarappa.context.catalog.domain.repositories.ManufacturerRepository;
 import it.nicolachiarappa.shared.application.mapper.EntityMapper;
 import it.nicolachiarappa.shared.application.dto.DTO;
 import it.nicolachiarappa.shared.application.request.UpdateRequest;

@@ -3,7 +3,7 @@ package it.nicolachiarappa.context.catalog.application.mappers;
 import it.nicolachiarappa.context.catalog.application.dtos.ManufacturerDTO;
 import it.nicolachiarappa.context.catalog.application.requests.CreateManufacturerRequest;
 import it.nicolachiarappa.shared.application.service.Finder;
-import it.nicolachiarappa.context.catalog.domain.model.Manufacturer;
+import it.nicolachiarappa.context.catalog.domain.models.Manufacturer;
 import it.nicolachiarappa.shared.application.mapper.EntityMapper;
 import it.nicolachiarappa.shared.application.request.Request;
 import org.mapstruct.Mapper;

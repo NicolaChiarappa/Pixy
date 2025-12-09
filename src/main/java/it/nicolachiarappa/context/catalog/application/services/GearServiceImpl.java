@@ -7,9 +7,9 @@ import it.nicolachiarappa.context.catalog.application.requests.CreateCameraReque
 import it.nicolachiarappa.context.catalog.application.requests.CreateLensRequest;
 import it.nicolachiarappa.context.catalog.application.requests.GearRequest;
 import it.nicolachiarappa.context.catalog.application.requests.UpgradeGearRequest;
-import it.nicolachiarappa.context.catalog.domain.model.*;
-import it.nicolachiarappa.context.catalog.domain.repository.CameraRepository;
-import it.nicolachiarappa.context.catalog.domain.repository.LensRepository;
+import it.nicolachiarappa.context.catalog.domain.models.*;
+import it.nicolachiarappa.context.catalog.domain.repositories.CameraRepository;
+import it.nicolachiarappa.context.catalog.domain.repositories.LensRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;

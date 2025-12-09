@@ -1,4 +1,4 @@
-package it.nicolachiarappa.context.catalog.domain.model;
+package it.nicolachiarappa.context.catalog.domain.models;
 
 public class LensUpgradePolicy extends UpgradePolicy<Lens>{
     @Override

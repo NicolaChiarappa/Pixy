@@ -5,8 +5,8 @@ import it.nicolachiarappa.context.catalog.application.requests.CreateCameraReque
 import it.nicolachiarappa.context.catalog.application.requests.CreateLensRequest;
 import it.nicolachiarappa.context.catalog.application.requests.GearRequest;
 import it.nicolachiarappa.context.catalog.application.requests.UpgradeGearRequest;
-import it.nicolachiarappa.context.catalog.domain.model.Camera;
-import it.nicolachiarappa.context.catalog.domain.model.Lens;
+import it.nicolachiarappa.context.catalog.domain.models.Camera;
+import it.nicolachiarappa.context.catalog.domain.models.Lens;
 
 import java.util.List;
 

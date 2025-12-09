@@ -1,4 +1,4 @@
-package it.nicolachiarappa.context.catalog.domain.model;
+package it.nicolachiarappa.context.catalog.domain.models;
 
 import it.nicolachiarappa.shared.domain.model.BaseEntity;
 import jakarta.persistence.Column;

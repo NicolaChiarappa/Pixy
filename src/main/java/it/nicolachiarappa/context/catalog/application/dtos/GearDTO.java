@@ -1,9 +1,9 @@
 package it.nicolachiarappa.context.catalog.application.dtos;
 
-import it.nicolachiarappa.context.catalog.domain.model.Gear;
-import it.nicolachiarappa.context.catalog.domain.model.Manufacturer;
-import it.nicolachiarappa.context.catalog.domain.model.Mount;
-import it.nicolachiarappa.context.catalog.domain.model.Status;
+import it.nicolachiarappa.context.catalog.domain.models.Gear;
+import it.nicolachiarappa.context.catalog.domain.models.Manufacturer;
+import it.nicolachiarappa.context.catalog.domain.models.Mount;
+import it.nicolachiarappa.context.catalog.domain.models.Status;
 import it.nicolachiarappa.shared.application.dto.DTO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

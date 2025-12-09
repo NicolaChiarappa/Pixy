@@ -2,7 +2,7 @@ package it.nicolachiarappa.context.catalog.application.mappers;
 
 import it.nicolachiarappa.context.catalog.application.dtos.LensDTO;
 import it.nicolachiarappa.context.catalog.application.requests.CreateLensRequest;
-import it.nicolachiarappa.context.catalog.domain.model.Lens;
+import it.nicolachiarappa.context.catalog.domain.models.Lens;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

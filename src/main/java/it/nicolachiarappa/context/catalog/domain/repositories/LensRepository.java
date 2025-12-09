@@ -1,6 +1,6 @@
-package it.nicolachiarappa.context.catalog.domain.repository;
+package it.nicolachiarappa.context.catalog.domain.repositories;
 
-import it.nicolachiarappa.context.catalog.domain.model.Lens;
+import it.nicolachiarappa.context.catalog.domain.models.Lens;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LensRepository extends JpaRepository<Lens, Long> {

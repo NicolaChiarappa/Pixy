@@ -1,11 +1,9 @@
-package it.nicolachiarappa.context.catalog.domain.model;
+package it.nicolachiarappa.context.catalog.domain.models;
 
 import jakarta.persistence.*;
 
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 @EqualsAndHashCode(callSuper = false)
 @Entity

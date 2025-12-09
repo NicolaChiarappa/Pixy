@@ -1,4 +1,4 @@
-package it.nicolachiarappa.context.catalog.domain.model;
+package it.nicolachiarappa.context.catalog.domain.models;
 
 
 import jakarta.persistence.Embeddable;

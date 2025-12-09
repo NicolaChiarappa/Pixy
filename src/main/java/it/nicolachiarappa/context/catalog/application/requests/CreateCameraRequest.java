@@ -1,6 +1,6 @@
 package it.nicolachiarappa.context.catalog.application.requests;
 
-import it.nicolachiarappa.context.catalog.domain.model.Format;
+import it.nicolachiarappa.context.catalog.domain.models.Format;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
