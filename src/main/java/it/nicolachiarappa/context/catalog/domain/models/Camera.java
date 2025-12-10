@@ -42,8 +42,8 @@ public final class Camera extends Gear implements Upgradable<Camera> {
 
     public void setOutOfProduction() {
 
-        if(this.getMarketStatus() == Status.OUT || this.getMarketStatus()== Status.DRAFT){
-            throw new UnsupportedOperationException("The gear's status must be active");
+        if(this.getMarketStatus()!=Status.ACTIVE){
+            throw new IllegalStateException("Cannot set to OUT_OF_PRODUCTION. Current status is: " + this.getMarketStatus());
         }
         this.setMarketStatus(Status.OUT);
     }

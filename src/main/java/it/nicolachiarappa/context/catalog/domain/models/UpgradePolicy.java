@@ -6,7 +6,7 @@ public abstract class UpgradePolicy<T extends Gear> {
         return switch (gear){
             case Camera ignored-> new CameraUpgradePolicy();
             case Lens ignored->new LensUpgradePolicy();
-            default -> throw new IllegalStateException("Unexpected value: " + gear);
+            default -> throw new IllegalArgumentException("Unexpected value: " + gear);
         };
     }
 
@@ -22,7 +22,7 @@ public abstract class UpgradePolicy<T extends Gear> {
             throw new IllegalArgumentException("The successor's release date cannot be earlier than the actual gear's release date");
         }
         if(!newGear.getManufacturer().equals(oldGear.getManufacturer())){
-            throw new IllegalArgumentException("The new gear manufacturer is not the same of the actual gear");
+            throw new IllegalArgumentException("The new gear's manufacturer is not the same of the actual gear");
         }
 
         return true;
