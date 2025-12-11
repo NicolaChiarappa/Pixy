@@ -8,7 +8,7 @@ import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 @Table(name = "manufacturers", uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))

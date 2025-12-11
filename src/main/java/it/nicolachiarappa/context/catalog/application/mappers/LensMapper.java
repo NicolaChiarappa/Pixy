@@ -22,7 +22,7 @@ public abstract class LensMapper {
     @Mapping(target = "name", source = "name")
     @Mapping(target = "mounts", source = "mounts")
     @Mapping(target = "manufacturer", source = "manufacturerId",qualifiedByName = "manufacturerFromId")
-    @Mapping(target = "focal", source = "focal")
+    @Mapping(target = "focalLength", source = "focalLength")
     @Mapping(target = "aperture", source = "aperture")
     public abstract Lens fromCreateRequest(CreateLensRequest request);
 

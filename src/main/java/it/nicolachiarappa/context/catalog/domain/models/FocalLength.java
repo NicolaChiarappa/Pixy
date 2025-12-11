@@ -4,13 +4,15 @@ package it.nicolachiarappa.context.catalog.domain.models;
 import jakarta.persistence.Embeddable;
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Embeddable
 @Data
-public class Focal {
+@NoArgsConstructor
+public class FocalLength {
 
-    public Focal (Integer minimumLength, Integer maximumLength){
+    public FocalLength(Integer minimumLength, Integer maximumLength){
         if(minimumLength>maximumLength){
             throw new IllegalArgumentException();
         }
@@ -21,14 +23,10 @@ public class Focal {
         }
     }
 
-    public Focal(Integer fixedLength){
-        new Focal(fixedLength, fixedLength);
+    public FocalLength(Integer fixedLength){
+        new FocalLength(fixedLength, fixedLength);
     }
 
-
-    public Focal(){
-
-    }
 
     private Integer minimumLength;
 

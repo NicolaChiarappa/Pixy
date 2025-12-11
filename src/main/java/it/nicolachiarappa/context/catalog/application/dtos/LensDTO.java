@@ -1,7 +1,7 @@
 package it.nicolachiarappa.context.catalog.application.dtos;
 
 import it.nicolachiarappa.context.catalog.domain.models.Aperture;
-import it.nicolachiarappa.context.catalog.domain.models.Focal;
+import it.nicolachiarappa.context.catalog.domain.models.FocalLength;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 @Data
 public class LensDTO  extends GearDTO{
 
-    private Focal focal;
+    private FocalLength focalLength;
     private Aperture aperture;
     private Long successorId;
     private Long predecessorId;
