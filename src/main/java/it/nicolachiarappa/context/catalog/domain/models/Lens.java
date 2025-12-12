@@ -5,13 +5,13 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 public final class Lens extends Gear implements Upgradable<Lens> {
 
     @Embedded
-    private Focal focal;
+    private FocalLength focalLength;
 
     @Embedded
     private Aperture aperture;
@@ -24,7 +24,7 @@ public final class Lens extends Gear implements Upgradable<Lens> {
 
 
     public Boolean isFixed(){
-        return focal.getIsFixed();
+        return focalLength.getIsFixed();
     }
 
 
@@ -44,7 +44,7 @@ public final class Lens extends Gear implements Upgradable<Lens> {
     public void setOutOfProduction() {
 
         if(this.getMarketStatus() == Status.OUT || this.getMarketStatus()== Status.DRAFT){
-            throw new UnsupportedOperationException("The gear's status must be active");
+            throw new IllegalStateException("The gear's status must be active");
         }
 
         this.setMarketStatus(Status.OUT);

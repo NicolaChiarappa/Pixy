@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 public class CreateLensRequest extends CreateGearRequest {
 
     @NotNull
-    private Focal focal;
+    private FocalLength focalLength;
     @NotNull
     private Aperture aperture;
 
