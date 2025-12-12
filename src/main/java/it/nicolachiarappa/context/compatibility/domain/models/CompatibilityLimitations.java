@@ -1,4 +1,4 @@
-package it.nicolachiarappa.context.catalog.domain.services;
+package it.nicolachiarappa.context.compatibility.domain.models;
 
 public enum CompatibilityLimitations {
 

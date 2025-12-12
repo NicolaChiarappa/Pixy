@@ -1,6 +1,8 @@
-package it.nicolachiarappa.context.catalog.domain.services;
+package it.nicolachiarappa.context.compatibility.domain.models;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Setter;
 
 import java.util.Collections;
 import java.util.Set;
@@ -8,8 +10,10 @@ import java.util.Set;
 @Data
 public class CompatibilityResult {
 
-    private final CompatibilityType type;
-    private final Set<CompatibilityLimitations> limitations;
+    @Setter(AccessLevel.NONE)
+    private  CompatibilityType type;
+    @Setter(AccessLevel.NONE)
+    private  Set<CompatibilityLimitations> limitations;
 
     private CompatibilityResult(CompatibilityType type, Set<CompatibilityLimitations> limitations){
         this.type = type;
@@ -26,6 +30,15 @@ public class CompatibilityResult {
 
     public static CompatibilityResult incompatible(){
         return new CompatibilityResult(CompatibilityType.INCOMPATIBLE, Collections.emptySet());
+    }
+
+    public static CompatibilityResult empty(){
+        return new CompatibilityResult(null, null);
+    }
+
+    public void turnInto(CompatibilityResult result){
+        this.type = result.getType();
+        this.limitations = result.getLimitations();
     }
 
 
