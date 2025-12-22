@@ -1,29 +1,29 @@
-# Qual è il problema
+# What is the problem
 
-Spesso cercare e, soprattutto scegliere, un nuovo componente per il tuo kit fotografico non è facile. Ti ritrovi molto facilmente ad aprire svariati siti web per controllare compatibilità, recensioni, prezzi, casi d’uso e foto di esempio. Devi quindi calcolare dati frazionati e in vari formati per trovare il miglior prodotto per le tue esigenze.
+Searching for—and above all, choosing—a new component for your photography kit is often not easy. You often find yourself opening various websites to check compatibility, reviews, prices, use cases, and sample photos. You then have to calculate fragmented data in various formats to find the best product for your needs.
 
-L’obiettivo è quello di creare una piattaforma che normalizza i dati, li raggruppa e produce, sulla base del kit fotografico attuale e all’esigenza del fotografo, una lista di componenti ordinati per rilevanza/prezzo/ecc.
+The goal is to create a platform that normalizes data, groups it, and produces—based on the current photography kit and the photographer's needs—a list of components sorted by relevance, price, etc.
 
-# Come lo risolvo
+# How I solve it
 
-La piattaforma ha un database dei principali tipi di componenti (corpi, lenti, adattatori), espone le operazioni di CRUD e implementa un motore di compatibilità che calcola la compatibilità tra i diversi dispositivi.
+The platform features a database of the main types of components (bodies, lenses, adapters), exposes CRUD operations, and implements a compatibility engine that calculates compatibility between different devices.
 
-### Motore di compatbilità
+### Compatibility Engine
 
-La compatibilità prodotta non è un semplice booleano ma un ventaglio di valori strutturati.
+The compatibility output is not a simple boolean but a range of structured values.
 
-In ordine abbiamo:
+In order, we have:
 
-- COMPATIBLE: i due componenti sono totalmente compatibili e nessuna delle funzioni viene compromessa
-- LIMITATIONS: i due componenti sono fisicamente compatibili ma l’unione presenta delle limitazioni funzionali (es. autofocus disattivato, necessario adattatore, ecc.)
-- INCOMPATIBILE: i due componenti non sono compatibili affatto.
+- **COMPATIBLE**: the two components are fully compatible and none of the functions are compromised.
+- **LIMITATIONS**: the two components are physically compatible, but the combination presents functional limitations (e.g., autofocus disabled, adapter required, etc.).
+- **INCOMPATIBLE**: the two components are not compatible at all.
 
 ### REST API & Security
 
-Per accedere alle funzionalità della piattaforma è possibile usare endpoint HTTP. Inoltre tutte le route sono protette ed è possibile accedere solo dopo aver effettuato la registrazione ed aver ottenuto il JWT(Json Web Token).
+To access the platform's features, you can use HTTP endpoints. Furthermore, all routes are protected, and access is only possible after registering and obtaining a JWT (JSON Web Token).
 
 
-### Documentazione API
+### API Documentation
 <a id="table"></a>
 ![WIP](https://img.shields.io/badge/status-WIP-orange)
 
@@ -41,10 +41,10 @@ Per accedere alle funzionalità della piattaforma è possibile usare endpoint HT
 
 ---
 
-### Esempi JSON di Richiesta
+### JSON requests examples
 
 <a id="signup"></a>
-### Registrazione Utente
+### User signup
 
 Endpoint: `POST /api/user/signup`
 
@@ -64,10 +64,10 @@ Endpoint: `POST /api/user/signup`
 }
 ```
 
-[Torna alla tabella](#table)
+[Back to table](#table)
 
 <a id="login"></a>
-### Login Utente
+### User login
 
 Endpoint: `POST /api/user/login`
 
@@ -79,10 +79,10 @@ Endpoint: `POST /api/user/login`
   "password": "password123"
 }
 ```
-[Torna alla tabella](#table)
+[Back to table](#table)
 
 <a id="createcamera"></a>
-### Creazione Fotocamera
+### Camera creation
 
 Endpoint: `POST /api/camera`
 
@@ -99,11 +99,11 @@ Endpoint: `POST /api/camera`
   "format": "FULLFRAME"
 }
 ```
-[Torna alla tabella](#table)
+[Back to table](#table)
 
 <a id="upgradecamera"></a>
-### Upgrade Fotocamera
-NOTE: Consente di impostare il modello successore di una data fotocamera
+### Camera upgrade
+**NOTE: Enable to set a camera's successor**
 
 Endpoint: `PATCH /api/camera`
 
@@ -114,10 +114,10 @@ Endpoint: `PATCH /api/camera`
   "newId": 2
 }
 ```
-[Torna alla tabella](#table)
+[Back to table](#table)
 
 <a id="createlens"></a>
-### Creazione Obiettivo
+### Lens creation
 
 Endpoint: `POST /api/lens`
 
@@ -140,10 +140,10 @@ Endpoint: `POST /api/lens`
   }
 }
 ```
-[Torna alla tabella](#table)
+[Back to table](#table)
 
 <a id="createmanufacturer"></a>
-### Creazione Produttore
+### Manufacturer creation
 
 Endpoint: `POST /api/manufacturer`
 
@@ -154,4 +154,4 @@ Endpoint: `POST /api/manufacturer`
   "name": "Sony"
 }
 ```
-[Torna alla tabella](#table)
+[Back to table](#table)
