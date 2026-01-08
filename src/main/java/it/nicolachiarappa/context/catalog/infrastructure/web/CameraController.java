@@ -1,6 +1,6 @@
 package it.nicolachiarappa.context.catalog.infrastructure.web;
 
-import it.nicolachiarappa.context.catalog.application.dtos.CameraDTO;
+import it.nicolachiarappa.context.catalog.application.dtos.CameraDto;
 import it.nicolachiarappa.context.catalog.application.mappers.CameraMapper;
 import it.nicolachiarappa.context.catalog.application.requests.CreateCameraRequest;
 import it.nicolachiarappa.context.catalog.application.requests.UpgradeGearRequest;
@@ -22,7 +22,7 @@ public class CameraController {
     private CameraMapper cameraMapper;
 
     @PostMapping
-    public CameraDTO createCamera(@RequestBody CreateCameraRequest request){
+    public CameraDto createCamera(@RequestBody CreateCameraRequest request){
         return cameraMapper.toDTO(service.addCamera(request));
     }
 
@@ -32,7 +32,7 @@ public class CameraController {
     }
 
     @GetMapping("/{id}")
-    public CameraDTO getCameraById(@PathVariable Long id){
+    public CameraDto getCameraById(@PathVariable Long id){
         return cameraMapper.toDTO(service.getCameraById(id));
     }
 

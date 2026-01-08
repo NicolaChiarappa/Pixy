@@ -1,6 +1,6 @@
 package it.nicolachiarappa.context.catalog.application.services;
 
-import it.nicolachiarappa.context.catalog.application.dtos.CameraDTO;
+import it.nicolachiarappa.context.catalog.application.dtos.CameraDto;
 import it.nicolachiarappa.context.catalog.application.requests.CreateCameraRequest;
 import it.nicolachiarappa.context.catalog.application.requests.CreateLensRequest;
 import it.nicolachiarappa.context.catalog.application.requests.GearRequest;
@@ -28,7 +28,7 @@ public interface GearService {
 
     Lens getLensById(Long id);
 
-    List<CameraDTO> upgradeCamera(UpgradeGearRequest request);
+    List<CameraDto> upgradeCamera(UpgradeGearRequest request);
 
     void upgradeLens(UpgradeGearRequest request);
 

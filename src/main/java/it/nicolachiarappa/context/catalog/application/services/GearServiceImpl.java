@@ -1,6 +1,6 @@
 package it.nicolachiarappa.context.catalog.application.services;
 
-import it.nicolachiarappa.context.catalog.application.dtos.CameraDTO;
+import it.nicolachiarappa.context.catalog.application.dtos.CameraDto;
 import it.nicolachiarappa.context.catalog.application.mappers.CameraMapper;
 import it.nicolachiarappa.context.catalog.application.mappers.LensMapper;
 import it.nicolachiarappa.context.catalog.application.requests.CreateCameraRequest;
@@ -42,7 +42,7 @@ public class GearServiceImpl implements GearService {
 
     @Override
     public Camera addCamera(@Valid CreateCameraRequest request) {
-        Camera camera = cameraMapper.fromCreateRequest(request);
+        Camera camera = cameraMapper.fromRequest(request);
         return cameraRepository.save(camera);
     }
 
@@ -60,7 +60,7 @@ public class GearServiceImpl implements GearService {
     public Lens addLens(@Valid @NotNull CreateLensRequest request) {
 
         System.out.println(request);
-        Lens lens = lensMapper.fromCreateRequest(request);
+        Lens lens = lensMapper.fromRequest(request);
         return lensRepository.save(lens);
     }
 
@@ -77,13 +77,13 @@ public class GearServiceImpl implements GearService {
 
     @Override
     @Transactional
-    public List<CameraDTO> upgradeCamera(@Valid UpgradeGearRequest request) {
+    public List<CameraDto> upgradeCamera(@Valid UpgradeGearRequest request) {
         Camera oldCamera = cameraRepository.getReferenceById(request.getOldId());
         Camera newCamera = cameraRepository.getReferenceById(request.getNewId());
 
         oldCamera.upgrade(newCamera);
 
-        List<CameraDTO> list = new ArrayList<>();
+        List<CameraDto> list = new ArrayList<>();
 
         list.add(
                 cameraMapper.toDTO(cameraRepository.save(oldCamera))

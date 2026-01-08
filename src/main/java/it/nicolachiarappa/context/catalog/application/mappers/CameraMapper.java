@@ -1,7 +1,7 @@
 package it.nicolachiarappa.context.catalog.application.mappers;
 
 
-import it.nicolachiarappa.context.catalog.application.dtos.CameraDTO;
+import it.nicolachiarappa.context.catalog.application.dtos.CameraDto;
 import it.nicolachiarappa.context.catalog.application.requests.CreateCameraRequest;
 import it.nicolachiarappa.context.catalog.domain.models.Camera;
 import org.mapstruct.Mapper;
@@ -24,14 +24,15 @@ public abstract class CameraMapper {
     @Mapping(target = "successor", ignore = true)
     @Mapping(target = "predecessor", ignore = true)
     @Mapping(target = "manufacturer", source = "manufacturerId", qualifiedByName = "manufacturerFromId")
-    public abstract Camera fromCreateRequest(CreateCameraRequest request);
+    public abstract Camera fromRequest(CreateCameraRequest request);
+
 
 
 
 
     @Mapping(target = "successorId", ignore = true)
     @Mapping(target = "predecessorId",ignore = true)
-    public abstract CameraDTO toDTO (Camera camera);
+    public abstract CameraDto toDTO (Camera camera);
 
 
 }
