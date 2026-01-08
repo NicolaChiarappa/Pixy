@@ -1,19 +1,18 @@
 package it.nicolachiarappa.context.catalog.domain.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import it.nicolachiarappa.shared.domain.model.BaseEntity;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Entity
-public enum Mount {
+public class Mount extends BaseEntity {
 
-    SONY_E, SONY_FE;
+    @Column
+    private String name;
 
-
-    @Id
-    @Getter
-    @Setter
-    private Long id;
+    @Column
+    private String slug;
 
 }
