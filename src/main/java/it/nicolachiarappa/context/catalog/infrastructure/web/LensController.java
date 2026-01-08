@@ -1,6 +1,6 @@
 package it.nicolachiarappa.context.catalog.infrastructure.web;
 
-import it.nicolachiarappa.context.catalog.application.dtos.LensDTO;
+import it.nicolachiarappa.context.catalog.application.dtos.LensDto;
 import it.nicolachiarappa.context.catalog.application.mappers.LensMapper;
 import it.nicolachiarappa.context.catalog.application.requests.CreateLensRequest;
 import it.nicolachiarappa.context.catalog.application.services.GearService;
@@ -17,13 +17,13 @@ public class LensController {
     LensMapper mapper;
 
     @PostMapping
-    public LensDTO createLens(@RequestBody CreateLensRequest request){
+    public LensDto createLens(@RequestBody CreateLensRequest request){
         System.out.println(request);
         return mapper.toDTO(service.addLens(request));
     }
 
     @GetMapping("/{id}")
-    public LensDTO getLensById(@PathVariable Long id){
+    public LensDto getLensById(@PathVariable Long id){
         return mapper.toDTO(service.getLensById(id));
     }
 }

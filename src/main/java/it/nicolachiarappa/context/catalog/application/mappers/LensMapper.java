@@ -1,6 +1,6 @@
 package it.nicolachiarappa.context.catalog.application.mappers;
 
-import it.nicolachiarappa.context.catalog.application.dtos.LensDTO;
+import it.nicolachiarappa.context.catalog.application.dtos.LensDto;
 import it.nicolachiarappa.context.catalog.application.requests.CreateLensRequest;
 import it.nicolachiarappa.context.catalog.domain.models.Lens;
 import org.mapstruct.Mapper;
@@ -24,14 +24,14 @@ public abstract class LensMapper {
     @Mapping(target = "manufacturer", source = "manufacturerId",qualifiedByName = "manufacturerFromId")
     @Mapping(target = "focalLength", source = "focalLength")
     @Mapping(target = "aperture", source = "aperture")
-    public abstract Lens fromCreateRequest(CreateLensRequest request);
+    public abstract Lens fromRequest(CreateLensRequest request);
 
 
 
 
     @Mapping(target = "successorId", ignore = true)
     @Mapping(target = "predecessorId", ignore = true)
-    public abstract LensDTO toDTO(Lens lens);
+    public abstract LensDto toDTO(Lens lens);
 
 
 }
