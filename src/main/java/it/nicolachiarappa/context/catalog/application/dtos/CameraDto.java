@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CameraDTO extends GearDTO{
+public class CameraDto extends GearDto {
     private Integer megapixels;
     private Format format;
     private Long successorId;

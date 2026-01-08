@@ -7,6 +7,6 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ManufacturerDTO extends DTO<Manufacturer> {
+public class ManufacturerDto extends DTO<Manufacturer> {
     private String name;
 }

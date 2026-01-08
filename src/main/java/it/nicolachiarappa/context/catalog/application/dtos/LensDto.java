@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class LensDTO  extends GearDTO{
+public class LensDto extends GearDto {
 
     private FocalLength focalLength;
     private Aperture aperture;

@@ -13,7 +13,7 @@ import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class GearDTO extends DTO<Gear> {
+public class GearDto extends DTO<Gear> {
     private String name;
     private Manufacturer manufacturer;
     private Set<Mount> mounts;
