@@ -1,6 +1,6 @@
 package it.nicolachiarappa.context.catalog.application.mappers;
 
-import it.nicolachiarappa.context.catalog.application.dtos.ManufacturerDTO;
+import it.nicolachiarappa.context.catalog.application.dtos.ManufacturerDto;
 import it.nicolachiarappa.context.catalog.application.requests.CreateManufacturerRequest;
 import it.nicolachiarappa.shared.application.service.Finder;
 import it.nicolachiarappa.context.catalog.domain.models.Manufacturer;
@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
         componentModel = "spring",
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE
 )
-public abstract class ManufacturerMapper implements EntityMapper<Manufacturer, ManufacturerDTO> {
+public abstract class ManufacturerMapper implements EntityMapper<Manufacturer, ManufacturerDto> {
 
 
     @Autowired
@@ -33,7 +33,7 @@ public abstract class ManufacturerMapper implements EntityMapper<Manufacturer, M
     public abstract Manufacturer fromCreateRequest(CreateManufacturerRequest request);
 
 
-    public abstract ManufacturerDTO toDto(Manufacturer manufacturer);
+    public abstract ManufacturerDto toDto(Manufacturer manufacturer);
 
     @Override
     public Manufacturer toEntity(Request<Manufacturer> request) {
@@ -41,7 +41,7 @@ public abstract class ManufacturerMapper implements EntityMapper<Manufacturer, M
     }
 
     @Override
-    public ManufacturerDTO toDTO(Manufacturer entity) {
+    public ManufacturerDto toDTO(Manufacturer entity) {
         return this.toDto(entity);
     }
 

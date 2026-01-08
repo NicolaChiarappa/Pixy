@@ -1,6 +1,6 @@
 package it.nicolachiarappa.context.catalog.application.services;
 
-import it.nicolachiarappa.context.catalog.application.dtos.ManufacturerDTO;
+import it.nicolachiarappa.context.catalog.application.dtos.ManufacturerDto;
 import it.nicolachiarappa.context.catalog.application.mappers.ManufacturerMapper;
 import it.nicolachiarappa.context.catalog.domain.models.Manufacturer;
 import it.nicolachiarappa.context.catalog.domain.repositories.ManufacturerRepository;
@@ -40,7 +40,7 @@ public class ManufacturerServiceImpl implements ManufacturerService  {
 
 
     @Override
-    public EntityMapper<Manufacturer, ManufacturerDTO> getMapper(){
+    public EntityMapper<Manufacturer, ManufacturerDto> getMapper(){
         return this.mapper;
     }
 

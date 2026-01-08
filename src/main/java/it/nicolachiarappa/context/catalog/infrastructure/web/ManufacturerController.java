@@ -1,6 +1,6 @@
 package it.nicolachiarappa.context.catalog.infrastructure.web;
 
-import it.nicolachiarappa.context.catalog.application.dtos.ManufacturerDTO;
+import it.nicolachiarappa.context.catalog.application.dtos.ManufacturerDto;
 import it.nicolachiarappa.context.catalog.application.mappers.ManufacturerMapper;
 import it.nicolachiarappa.context.catalog.application.requests.CreateManufacturerRequest;
 import it.nicolachiarappa.context.catalog.application.services.ManufacturerService;
@@ -22,12 +22,12 @@ public class ManufacturerController {
 
     @PostMapping
     @PreAuthorize("hasAuthority('ADMIN')")
-    public ManufacturerDTO createManufacturer(@RequestBody @Valid CreateManufacturerRequest request){
+    public ManufacturerDto createManufacturer(@RequestBody @Valid CreateManufacturerRequest request){
         return  service.create(request);
     }
 
     @GetMapping
-    public ManufacturerDTO getManufacturerById(Long id){
+    public ManufacturerDto getManufacturerById(Long id){
         return mapper.toDto(service.findByIdOrThrow(id));
     }
 

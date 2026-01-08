@@ -17,11 +17,11 @@ public class LensAdapter extends Gear{
         this.target=target;
     }
 
-    @Enumerated(EnumType.STRING)
+    @ManyToOne
     private Mount source;
 
 
-    @Enumerated(EnumType.STRING)
+    @ManyToOne
     private Mount target;
 
 
