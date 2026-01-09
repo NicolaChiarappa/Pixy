@@ -2,7 +2,7 @@ package it.nicolachiarappa.context.catalog.infrastructure.web;
 
 import it.nicolachiarappa.context.catalog.application.dtos.ManufacturerDto;
 import it.nicolachiarappa.context.catalog.application.mappers.ManufacturerMapper;
-import it.nicolachiarappa.context.catalog.application.requests.CreateManufacturerRequest;
+import it.nicolachiarappa.context.catalog.application.requests.ManufacturerRequest;
 import it.nicolachiarappa.context.catalog.application.services.ManufacturerService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class ManufacturerController {
 
     @PostMapping
     @PreAuthorize("hasAuthority('ADMIN')")
-    public ManufacturerDto createManufacturer(@RequestBody @Valid CreateManufacturerRequest request){
+    public ManufacturerDto createManufacturer(@RequestBody @Valid ManufacturerRequest request){
         return  service.create(request);
     }
 

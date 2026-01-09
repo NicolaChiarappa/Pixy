@@ -1,13 +1,11 @@
 package it.nicolachiarappa.context.catalog.application.mappers;
 
 import it.nicolachiarappa.context.catalog.application.dtos.ManufacturerDto;
-import it.nicolachiarappa.context.catalog.application.requests.CreateManufacturerRequest;
+import it.nicolachiarappa.context.catalog.application.requests.ManufacturerRequest;
+import it.nicolachiarappa.shared.application.mapper.CRUDMapper;
 import it.nicolachiarappa.shared.application.service.Finder;
 import it.nicolachiarappa.context.catalog.domain.models.Manufacturer;
-import it.nicolachiarappa.shared.application.mapper.EntityMapper;
-import it.nicolachiarappa.shared.application.request.Request;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
         componentModel = "spring",
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE
 )
-public abstract class ManufacturerMapper implements EntityMapper<Manufacturer, ManufacturerDto> {
+public class ManufacturerMapper extends CRUDMapper<Manufacturer, ManufacturerDto, ManufacturerRequest> {
 
 
     @Autowired
@@ -29,29 +27,18 @@ public abstract class ManufacturerMapper implements EntityMapper<Manufacturer, M
     }
 
 
-    @Mapping(target = "id", ignore = true)
-    public abstract Manufacturer fromCreateRequest(CreateManufacturerRequest request);
-
-
-    public abstract ManufacturerDto toDto(Manufacturer manufacturer);
-
     @Override
-    public Manufacturer toEntity(Request<Manufacturer> request) {
-        return toEntityStrategy(request);
+    public Manufacturer fromRequest(ManufacturerRequest request) {
+        return null;
     }
 
     @Override
-    public ManufacturerDto toDTO(Manufacturer entity) {
-        return this.toDto(entity);
+    public Manufacturer fromRequest(ManufacturerRequest request, Manufacturer target) {
+        return null;
     }
 
-
-    private Manufacturer toEntityStrategy(Request<Manufacturer> request){
-        return switch (request){
-            case CreateManufacturerRequest creationRequest-> this.fromCreateRequest(creationRequest);
-            default -> throw new IllegalStateException("Unexpected value: " + request);
-        };
+    @Override
+    public ManufacturerDto toDto(Manufacturer entity) {
+        return null;
     }
-
-
 }
