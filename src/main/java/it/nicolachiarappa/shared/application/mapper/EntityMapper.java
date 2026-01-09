@@ -1,11 +1,17 @@
 package it.nicolachiarappa.shared.application.mapper;
 import it.nicolachiarappa.shared.application.request.Request;
 
-public interface EntityMapper<T , Dto > {
+public interface EntityMapper<EntityT, DtoT, RequestT extends Request<EntityT>> {
 
 
-    T toEntity(Request<T> request);
 
-    Dto toDTO(T entity);
+
+
+    EntityT fromRequest(RequestT request);
+
+    EntityT fromRequest(RequestT request, EntityT target);
+
+
+    DtoT toDto(EntityT entity);
 
 }

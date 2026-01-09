@@ -41,8 +41,6 @@ public class LensAdapter extends Gear{
             if(source.equals(target)){
                 throw new IllegalArgumentException("Source and target mount must be the different");
             }
-        }else{
-            throw new NullPointerException("Target or source mount is null");
         }
     }
 

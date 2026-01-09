@@ -1,34 +1,39 @@
 package it.nicolachiarappa.shared.application.service;
 
-import it.nicolachiarappa.shared.domain.model.BaseEntity;
 import it.nicolachiarappa.shared.application.dto.DTO;
 import it.nicolachiarappa.shared.application.mapper.EntityMapper;
-import it.nicolachiarappa.shared.application.request.CreateRequest;
-import it.nicolachiarappa.shared.application.request.UpdateRequest;
+import it.nicolachiarappa.shared.application.request.Request;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CRUDService<
-                            Ent extends BaseEntity,
-                            Dto extends DTO<Ent>
+                            Ent,
+                            Dto extends DTO<Ent>,
+                            Req extends Request<Ent>
                             >
 {
 
 
-    default Dto create(CreateRequest<Ent> request){
-        Ent element = getMapper().toEntity(request);
-        System.out.println("element"+element);
-        return getMapper().toDTO(getRepository().save(element));
+    default Dto create(Req request){
+        Ent element = getMapper().fromRequest(request);
+        return getMapper().toDto(getRepository().save(element));
     }
 
-    default DTO<Ent> read(Long id){
-        return getMapper().toDTO(getRepository().findById(id).orElseThrow());
+    default Dto read(Long id){
+        return getMapper().toDto(getRepository().findById(id).orElseThrow());
     }
 
-    DTO<Ent> update(UpdateRequest<Ent> request);
+    default Dto update(Long id, Req request){
+        Ent target = getRepository().findById(id).orElseThrow();
+        Ent updated = getMapper().fromRequest(request, target);
+        Ent saved = getRepository().save(updated);
+        return getMapper().toDto(saved);
+    }
 
-    DTO<Ent> delete(Long id);
+    default Dto delete(Long id){
+        throw new UnsupportedOperationException();
+    }
 
-    EntityMapper<Ent, Dto> getMapper();
+    EntityMapper<Ent, Dto, Req> getMapper();
 
     JpaRepository<Ent, Long> getRepository();
 
